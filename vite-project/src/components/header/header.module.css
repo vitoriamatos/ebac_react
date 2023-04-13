@@ -1,0 +1,33 @@
+
+header {
+    padding: 16px 0;
+    background-color: #64b9ff;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+}
+header li {
+    display: flex;
+    margin-left: 16px;
+}
+
+header li a {
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+    color: #fff;
+}
+
+header li a:hover {
+    align-items: center;
+    text-decoration: none;
+    color: #283da8;
+}
+
+header .container {
+    display: flex!important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+

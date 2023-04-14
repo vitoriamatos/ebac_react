@@ -1,5 +1,5 @@
 import { useState } from "react"
-import InputMask from 'react-input-mask';
+
 import styles from './Imc.module.css';
 import styles2 from './Imc.module.css';
 
@@ -57,6 +57,16 @@ const Calculo_imc = () => {
         setHeight("");
     }
 
+
+    const handleChangeHeight = (event) => {
+        let input = event.target.value.replace(/\D/g, '');
+
+        if (input.length == 3) {
+            input = input.replace(/(\d{1})(\d)/, "$1.$2");
+        }
+        setHeight(input);
+    };
+
     const handleChange = (event) => {
         let input = event.target.value.replace(/\D/g, '');
 
@@ -80,8 +90,16 @@ const Calculo_imc = () => {
                     placeholder="Peso em kg"
                 />
 
-                <InputMask type="text" name="height" mask="9.99" placeholder="altura"></InputMask>
-                <button type="submit">calcular</button>
+                <input
+                    type="text"
+                    value={height}
+                    maxLength={4}
+                    onChange={handleChangeHeight}
+                    name="height"
+                    placeholder="Altura em m"
+                />
+
+                <button type="submit">CALCULAR</button>
 
                 <div class="result" className={styles2.result}>
                     <h2>Resultado</h2><br></br>
